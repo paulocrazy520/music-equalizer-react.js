@@ -1,0 +1,55 @@
+{
+  "name": "equalizer",
+  "version": "0.1.0",
+  "description": "simple player with equalizer",
+  "main": "build/index.html",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build.js",
+    "precommit": "lint-staged",
+    "deploy":
+      "rm -rf dist/.git && npm run build && cd dist && git init && git add . && git commit -m \"Initial commit\" && git remote add origin git@github.com:Bloomca/equalizer.git && git push --force origin master:gh-pages",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seva Zaikov",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^4.12.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "grunt": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "husky": "^0.14.3",
+    "json-loader": "^0.5.4",
+    "lint-staged": "^6.0.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^0.9.1",
+    "postcss-modules": "^0.5.0",
+    "prettier": "1.9.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "@cycle/collection": "^0.6.0",
+    "@cycle/dom": "^20.1.0",
+    "@cycle/isolate": "^3.2.0",
+    "@cycle/run": "^4.0.0",
+    "cycle-canvas": "^0.2.0",
+    "xstream": "^11.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
+  }
+}
